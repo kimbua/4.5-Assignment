@@ -1,25 +1,30 @@
 const express = require('express');
 const router = express.Router();
 
-// Concept #1. C.R.U.D. a resource using R.E.S.T.
+// Create, Read, Update, Delete a foo in our db
 
-router.get('/', function(req, res, next) {
-  res.status(200).json({ foos: ["spam", "ham", "eggs", "foo", "bar"] });
-});
-
-router.get("/:id", function (req, res, next) {
-  res.status(200).json({ foo: 'individualFoo' });
-});
-
+// CREATE
 router.post('/', function(req, res, next) {
   res.status(201).json({ foo: "newlyCreatedFoo" });
 });
 
+// READ foos
+router.get('/', function(req, res, next) {
+  res.status(200).json({ foos: ["spam", "ham", "eggs", "foo", "bar"] });
+});
+
+// READ foo
+router.get("/:id", function (req, res, next) {
+  res.status(200).json({ foo: 'individualFoo' });
+});
+
+// UPDATE
 router.patch('/:id', function(req, res, next) {
   res.status(202).json({ foo: "updatedFoo" });
 });
 
-router.delete('/', function(req, res, next) {
+// DELETE
+router.delete('/:id', function(req, res, next) {
   res.status(202).json({ foo: "deletedFoo" });
 });
 
