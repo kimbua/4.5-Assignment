@@ -14,7 +14,8 @@ jobController.get = (req,res) => {
     }
 }
 // update job
-const admissableJobProperties = ['title','city','salary','description','skills']
+const admissableJobProperties = ['title','city','description','skills','remote',`active`,`yrsXPExpected`,`salaryHigh:`,`salaryLow:`,`id`,`companyId`]
+
 jobController.patch = (req,res) => {
     try {
     let job = {}

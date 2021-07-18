@@ -42,6 +42,7 @@ jobsController.get = (req,res) => {
                 
             }    
         }}        
+            console.log(returnedJobs[0])
             res.status(200).send({
             numberOfFilteredJobs: returnedJobs.length,
             ReturnedJobs: returnedJobs.slice(req.start,req.end),
@@ -53,7 +54,7 @@ jobsController.get = (req,res) => {
       }
 }
 // create jobs
-const admissableJobProperties = ['title','city','salary','description','skills']
+const admissableJobProperties = ['title','city','description','skills','remote',`active`,`yrsXPExpected`,`salaryHigh:`,`salaryLow:`,`id`,`companyId`]
 jobsController.post = (req,res) => {
     try {
         let job = {}
