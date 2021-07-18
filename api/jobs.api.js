@@ -1,10 +1,27 @@
 const express = require('express');
+const jobsController = require('../controllers/jobsController');
+const jobController = require('../controllers/jobController');
+
 const router = express.Router();
 
-let jobs = require('../data.json')
+// Create, Read, Update, Delete a foo in our db
 
-router.get('/', function(req, res, next) {
-  res.json(jobs)
-});
+// READ jobs
+router.get('/', jobsController.get);
+
+// CREATE job
+router.post('/', jobsController.post);
+
+
+// READ job
+router.get("/:id", jobController.get);
+
+// UPDATE job
+router.patch('/:id', );
+
+// DELETE job
+router.delete('/:id',jobController.delete);
 
 module.exports = router;
+
+
